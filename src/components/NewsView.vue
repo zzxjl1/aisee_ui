@@ -194,6 +194,7 @@ export default ({
             var params = new URLSearchParams();
             var type = this.getTabName(this.selectedTabIndex);
             params.append('limit', this.fetchLimit);
+            params.append('token', this.$utils.get_token());
             getNewsByCategory(type, params).then(res => {
                 console.log(res);
                 this.setNewsList(this.selectedTabIndex, res);
@@ -216,6 +217,7 @@ export default ({
                 params.append('offset', offset);
             }
             params.append('limit', this.fetchLimit);
+            params.append('token', this.$utils.get_token());
             getNewsByCategory(type, params).then(res => {
                 console.log(res);
                 if (res.length < this.fetchLimit) {
